@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # 
-# Copyright (c) 2022 DPO Group (Pty) Ltd
+# Copyright (c) 2023 DPO Group (Pty) Ltd
 #
 # Author: App Inlet (Pty) Ltd
 #
@@ -9,7 +9,7 @@
 
 {
     'name': "DPO Pay Payment Gateway",
-    'version': '15.0.1.0.0',
+    'version': '16.0.1.0.1',
     'category': 'eCommerce',
     'summary': 'DPO Pay Gateway Integration for Odoo 15',
     'description': 'DPO Pay Payment Gateway Integration for Odoo 15, dpo, payment gateway, Payment Gateway Integration, dpo payment, odoo 15, odoo payment gateway',

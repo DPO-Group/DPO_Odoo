@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2022 DPO Group (Pty) Ltd
+# Copyright (c) 2023 DPO Group (Pty) Ltd
 #
 # Author: App Inlet (Pty) Ltd
 #
@@ -14,9 +14,9 @@ _logger = logging.getLogger(__name__)
 
 
 class PaymentAcquirer(models.Model):
-    _inherit = 'payment.acquirer'
+    _inherit = 'payment.provider'
 
-    provider = fields.Selection(selection_add=[('dpo', "DPO")], ondelete={'dpo': 'set default'})
+    code = fields.Selection(selection_add=[('dpo', "DPO")], ondelete={'dpo': 'set default'})
     dpo_company_token = fields.Char("Company Token", required_if_provider='dpo')
     dpo_service_type = fields.Char("Service Type", required_if_provider='dpo')
     dpo_service_description = fields.Char("Service Description")
@@ -24,6 +24,7 @@ class PaymentAcquirer(models.Model):
 
     def _get_default_payment_method_id(self):
         self.ensure_one()
-        if self.provider != 'dpo':
+        if self.code != 'dpo':
             return super()._get_default_payment_method_id()
         return self.env.ref('payment_dpo.payment_method_dpo').id
+

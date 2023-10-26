@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2022 DPO Group (Pty) Ltd
+# Copyright (c) 2023 DPO Group (Pty) Ltd
 #
 # Author: App Inlet (Pty) Ltd
 #
@@ -21,5 +21,5 @@ class DPOController(http.Controller):
     def dpo_return_from_redirect(self, **data):
         """ DPO Pay return """
         _logger.info("received DPO Pay return data:\n%s", pprint.pformat(data))
-        request.env['payment.transaction'].sudo()._handle_feedback_data('dpo', data)
+        request.env['payment.transaction'].sudo()._handle_notification_data('dpo', data)
         return request.redirect('/payment/status')

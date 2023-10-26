@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2022 DPO Group (Pty) Ltd
+# Copyright (c) 2023 DPO Group (Pty) Ltd
 #
 # Author: App Inlet (Pty) Ltd
 #
