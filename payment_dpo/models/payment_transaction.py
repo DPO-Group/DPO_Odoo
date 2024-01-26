@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2023 DPO Group (Pty) Ltd
+# Copyright (c) 2024 DPO Group (Pty) Ltd
 #
 # Author: App Inlet (Pty) Ltd
 #
@@ -105,16 +105,17 @@ class PaymentTransaction(models.Model):
         self.provider_reference = data.get('TransactionToken')
         status = response.get('Result')
 
-        if status in ['007', '003']:
-            self._set_pending(response.get('ResultExplanation'))
-        elif status in ['001', '005']:
-            self._set_authorized(response.get('ResultExplanation'))
-        elif status in ['000', '001', '002']:
-            self._set_done()
-        elif status in ['801', '802', '803', '804', ]:
-            self._set_error(response.get('ResultExplanation'))
-        elif status in ['900', '901', '902', '903', '904', '950']:
-            self._set_canceled(response.get('ResultExplanation'))
+        if data.get('PnrID') == self.reference:
+            if status in ['007', '003']:
+                self._set_pending(response.get('ResultExplanation'))
+            elif status in ['001', '005']:
+                self._set_authorized(response.get('ResultExplanation'))
+            elif status in ['000', '001', '002']:
+                self._set_done()
+            elif status in ['801', '802', '803', '804', ]:
+                self._set_error(response.get('ResultExplanation'))
+            elif status in ['900', '901', '902', '903', '904', '950']:
+                self._set_canceled(response.get('ResultExplanation'))
         else:
             _logger.info(
                 "received invalid transaction status for transaction with reference %s: %s",
