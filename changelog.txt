@@ -1,0 +1,16 @@
+=====================================
+Date	  : Version: Description
+=====================================
+
+= 1.0.3 - 2024-05-28 =
+* Release for Odoo v17.0.
+* Bug fixes and improvements.
+
+= 1.0.2 - 2024-01-26 =
+* Fix invalid PnrID reference.
+
+= 1.0.1 - 2023-10-26 =
+* Release for Odoo v16.0.
+
+= 1.0.0 - 2022-07-17 =
+* Initial release.
