@@ -9,10 +9,10 @@
 
 {
     'name': "DPO Pay Payment Gateway",
-    'version': '16.0.1.0.2',
+    'version': '17.0.1.0.0',
     'category': 'eCommerce',
-    'summary': 'DPO Pay Gateway Integration for Odoo 16',
-    'description': 'DPO Pay Payment Gateway Integration for Odoo 16, dpo, payment gateway, Payment Gateway Integration, dpo payment, odoo 16, odoo payment gateway',
+    'summary': 'DPO Pay Gateway Integration for Odoo 17',
+    'description': 'DPO Pay Payment Gateway Integration for Odoo 17, dpo, payment gateway, Payment Gateway Integration, dpo payment, odoo 17, odoo payment gateway',
     'author': 'App Inlet (Pty) Ltd',
     'company': 'DPO Group (Pty) Ltd',
     'maintainer': 'App Inlet (Pty) Ltd',

@@ -21,8 +21,10 @@ class PaymentAcquirer(models.Model):
     dpo_service_type = fields.Char("Service Type", required_if_provider='dpo')
     dpo_service_description = fields.Char("Service Description")
     dpo_pay_url = fields.Char("Pay URL", required_if_provider='dpo')
+    display_as = fields.Char("DPO Pay")
+    support_fees = fields.Char("Support Fees")
 
-    def _get_default_payment_method_id(self):
+    def _get_default_payment_method_id(self, *_args):
         self.ensure_one()
         if self.code != 'dpo':
             return super()._get_default_payment_method_id()

@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
 
-    <record id="payment_acquirer_dpo" model="payment.provider">
-        <field name="name">DPO Pay</field>
-        <field name="display_as">DPO Pay</field>
-        <field name="image_128" type="base64" file="payment_dpo/static/description/icon.png"/>
-        <field name="payment_icon_ids"
-               eval="[(6, 0, [
-                   ref('payment.payment_icon_cc_mastercard'),
-                   ref('payment.payment_icon_cc_visa'),
-               ])]"/>
-        <field name="code">dpo</field>
-        <field name="redirect_form_view_id" ref="redirect_form"/>
-        <field name="support_tokenization">False</field>
-        <field name="support_fees">True</field>
-        <field name="support_refund"></field>
-        <field name="support_tokenization">False</field>
-        <field name="dpo_pay_url">https://secure.3gdirectpay.com/payv3.php</field>
-        <field name="dpo_service_description">Goods and services</field>
-        <field name="dpo_service_type"></field>
-    </record>
-
     <record id="payment_method_dpo" model="account.payment.method">
         <field name="name">DPO Pay</field>
         <field name="code">dpo</field>
         <field name="payment_type">inbound</field>
+    </record>
+
+    <record id="payment_method_dpo_pay" model="payment.method">
+        <field name="name">DPO Pay</field>
+        <field name="code">dpo</field>
+        <field name="sequence">10</field>
+        <field name="active">False</field>
+        <field name="image" type="base64" file="payment_dpo/static/description/icon.png"/>
+        <field name="support_tokenization">True</field>
+        <field name="support_express_checkout">False</field>
+        <field name="support_refund"></field>
+    </record>
+
+    <record id="payment_acquirer_dpo" model="payment.provider">
+        <field name="name">DPO Pay</field>
+        <field name="image_128" type="base64" file="payment_dpo/static/description/icon.png"/>
+        <field name="code">dpo</field>
+        <field name="redirect_form_view_id" ref="redirect_form"/>
+        <field name="support_tokenization">False</field>
+        <field name="support_tokenization">False</field>
+        <field name="dpo_pay_url">https://secure.3gdirectpay.com/payv3.php</field>
+        <field name="dpo_service_description">Goods and services</field>
+        <field name="dpo_service_type"></field>
+        <field name="payment_method_ids"
+               eval="[Command.set([
+                         ref('payment_dpo.payment_method_dpo_pay'),
+                     ])]"
+        />
     </record>
 
 </odoo>
