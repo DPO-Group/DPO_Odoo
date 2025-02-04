@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2024 DPO Group (Pty) Ltd
+# Copyright (c) 2025 DPO Group (Pty) Ltd
 #
 # Author: App Inlet (Pty) Ltd
 #
@@ -50,7 +50,7 @@ class PaymentTransaction(models.Model):
             mobile = ''.join(match)
         name = partner_id.name.split()
         partner_street = self.prepare_address(partner_id.street) or ''
-        payload = f"""<?xml version="1.0" encoding="utf-8"?> <API3G> <CompanyToken>{self.provider_id.dpo_company_token}</CompanyToken> <Request>createToken</Request> <Transaction> <PaymentAmount>{values['amount']}</PaymentAmount> <PaymentCurrency>{currency_id.name}</PaymentCurrency> <CompanyRef>{values['reference']}</CompanyRef> <RedirectURL>{return_url}</RedirectURL> <BackURL>{back_url}</BackURL> <CompanyRefUnique>0</CompanyRefUnique> <customerFirstName>{name[0]}</customerFirstName> <customerLastName>{name[-1]}</customerLastName> <customerAddress>{partner_street}</customerAddress> <customerCity>{partner_id.city}</customerCity> <customerCountry>{partner_id.country_id.code}</customerCountry> <customerEmail>{partner_id.email or ''}</customerEmail> <customerPhone>{mobile}</customerPhone> <customerZip>{partner_id.zip or ''}</customerZip> <PTL>5</PTL> </Transaction> <Services> <Service> <ServiceType>{self.provider_id.dpo_service_type}</ServiceType> <ServiceDescription>{self.provider_id.dpo_service_description}</ServiceDescription> <ServiceDate>{datetime.strftime(datetime.now(), '%Y/%m/%d %H:%M')}</ServiceDate> </Service> </Services> <Additional> <BlockPayment>BT</BlockPayment> <BlockPayment>PP</BlockPayment> </Additional> </API3G>"""
+        payload = f"""<?xml version="1.0" encoding="utf-8"?> <API3G> <CompanyToken>{self.provider_id.dpo_company_token}</CompanyToken> <Request>createToken</Request> <Transaction> <PaymentAmount>{values['amount']}</PaymentAmount> <PaymentCurrency>{currency_id.name}</PaymentCurrency> <CompanyRef>{values['reference']}</CompanyRef> <RedirectURL>{return_url}</RedirectURL> <BackURL>{back_url}</BackURL> <CompanyRefUnique>0</CompanyRefUnique> <customerFirstName>{name[0]}</customerFirstName> <customerLastName>{name[-1]}</customerLastName> <customerAddress>{partner_street}</customerAddress> <customerCity>{partner_id.city}</customerCity> <customerCountry>{partner_id.country_id.code or ''}</customerCountry> <customerEmail>{partner_id.email or ''}</customerEmail> <customerPhone>{mobile}</customerPhone> <customerZip>{partner_id.zip or ''}</customerZip> <PTL>5</PTL> </Transaction> <Services> <Service> <ServiceType>{self.provider_id.dpo_service_type}</ServiceType> <ServiceDescription>{self.provider_id.dpo_service_description}</ServiceDescription> <ServiceDate>{datetime.strftime(datetime.now(), '%Y/%m/%d %H:%M')}</ServiceDate> </Service> </Services> <Additional> <BlockPayment>BT</BlockPayment> <BlockPayment>PP</BlockPayment> </Additional> </API3G>"""
         _logger.info(payload)
         headers = {
             'Content-Type': 'application/xml'
@@ -86,7 +86,6 @@ class PaymentTransaction(models.Model):
             return tx
 
         reference = data.get('CompanyRef')
-        CCDapproval = data.get('CCDapproval')
 
         tx = self.search([('reference', '=', reference), ('provider_code', '=', 'dpo')])
         if not tx:
