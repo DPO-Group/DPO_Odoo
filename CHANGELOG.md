@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/DPO-Group/DPO_Odoo/releases/tag/v1.1.1)
+
+### Fixed
+
+- Issues with empty address strings.
+- Reference to Odoo 17 in the manifest.
+
 ## [1.1.0](https://github.com/DPO-Group/DPO_Odoo/releases/tag/v1.1.0)
 
 ### Added

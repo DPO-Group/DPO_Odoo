@@ -29,7 +29,8 @@ class PaymentTransaction(models.Model):
     dpo_payment_token = fields.Char()
 
     def prepare_address(self, values):
-    
+        if not values:  # Handle None or empty string
+            return ''
         values = re.sub(r"º", "o", values)
       
         return ''.join(c for c in unicodedata.normalize('NFD', values)
