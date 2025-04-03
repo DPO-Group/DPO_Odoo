@@ -1,6 +1,6 @@
 # DPO_Odoo
 
-## DPO Pay Odoo Addon v1.1.0 for Odoo v18.0
+## DPO Pay Odoo Addon v1.1.1 for Odoo v18.0
 
 This is the DPO Pay addon for Odoo. Please feel free to contact
 the [DPO Pay support team](https://dpogroup.com/contact-us/) should you require any assistance.
