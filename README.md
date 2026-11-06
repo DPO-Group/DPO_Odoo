@@ -5,6 +5,10 @@
 This is the DPO Pay addon for Odoo. Please feel free to contact
 the [DPO Group support team](https://dpogroup.com/contact-us/) should you require any assistance.
 
+> **Using Odoo 19 or later?** Odoo now ships its own DPO payment provider, so this module cannot be installed
+> there. Install **DPO Pay Extras** (`payment_dpo_extras`) from the
+> [`19.0` branch](https://github.com/DPO-Group/DPO_Odoo/tree/19.0) instead.
+
 ## Installation
 Please navigate to the [releases page](https://github.com/DPO-Group/DPO_Odoo/releases), download the
 latest release (v1.0.2) and unzip. You will then be able to follow the integration guide PDF which is included in the
