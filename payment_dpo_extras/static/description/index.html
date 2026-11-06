@@ -1,0 +1,42 @@
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">DPO Pay Extras</h2>
+    <h3 class="oe_slogan">More control over the DPO payment provider built into Odoo 19</h3>
+    <p>
+      Odoo 19 includes a DPO payment provider. <strong>DPO Pay Extras</strong> installs on top of it, so no files of
+      Odoo are replaced and your existing DPO Service ID and Company Token keep working.
+    </p>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2>Features</h2>
+    <ul>
+      <li><strong>Configurable Pay URL</strong>: use the DPO live or sandbox payment page. The API host follows it.</li>
+      <li><strong>Service Description</strong>: send your own description to DPO instead of the order reference.</li>
+      <li><strong>Block Bank Transfer and PayPal</strong> on the DPO payment page.</li>
+      <li><strong>Payment Time Limit</strong>: control how long the DPO payment page stays valid.</li>
+      <li><strong>Customer street address and phone</strong> are included in the payment request.</li>
+      <li><strong>Clear errors</strong>: if DPO refuses to start a payment, the customer sees DPO's explanation.</li>
+      <li>Values are XML-escaped, so names such as "Smith &amp; Sons" no longer break the request.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2>Setup</h2>
+    <ol>
+      <li>Install <em>DPO Pay Extras</em>. Odoo's DPO provider is installed automatically.</li>
+      <li>Go to <em>Accounting or Website &rarr; Configuration &rarr; Payment Providers &rarr; DPO</em>.</li>
+      <li>Enter your <em>Service ID</em> and <em>Company Token</em> from DPO, choose Test Mode or Enabled and save.</li>
+      <li>Adjust the extra options if needed.</li>
+    </ol>
+    <p>
+      Odoo 16, 17 and 18 use the full <em>DPO Pay Payment Gateway</em> module (<code>payment_dpo</code>).
+      Odoo Online does not support third-party modules.
+    </p>
+    <p>Support: <a href="https://dpogroup.com/contact-us/">DPO Pay support team</a>. Author: App Inlet (Pty) Ltd.</p>
+  </div>
+</section>

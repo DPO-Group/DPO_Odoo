@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="payment_provider_form_dpo_extras" model="ir.ui.view">
+        <field name="name">DPO Pay Extras Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment_dpo.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='dpo_company_token']/.." position="inside">
+                <field name="dpo_pay_url"/>
+                <field name="dpo_service_description"/>
+                <field name="dpo_block_bank_transfer"/>
+                <field name="dpo_block_paypal"/>
+                <field name="dpo_payment_time_limit"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
