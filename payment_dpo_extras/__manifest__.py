@@ -9,7 +9,7 @@
 
 {
     'name': "DPO Pay Extras",
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.1',
     'category': 'Accounting/Payment Providers',
     'summary': 'Extra DPO Pay options on top of the built-in Odoo 19 DPO payment provider',
     'description': 'Extends the DPO payment provider that ships with Odoo 19 with a configurable pay URL, '
@@ -23,6 +23,7 @@
     'data': [
         'views/payment_provider_views.xml',
     ],
+    'images': ['static/description/banner.gif'],
     'license': 'GPL-3',
     'installable': True,
     'auto_install': False,
