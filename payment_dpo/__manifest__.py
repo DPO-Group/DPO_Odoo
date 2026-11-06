@@ -9,7 +9,7 @@
 
 {
     'name': "DPO Pay Payment Gateway",
-    'version': '16.0.1.0.2',
+    'version': '16.0.1.0.3',
     'category': 'eCommerce',
     'summary': 'DPO Pay Gateway Integration for Odoo 16',
     'description': 'DPO Pay Payment Gateway Integration for Odoo 16, dpo, payment gateway, Payment Gateway Integration, dpo payment, odoo 16, odoo payment gateway',
